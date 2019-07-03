@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <style>
+        progress {
+            /* style rules */
+            background-color: darkblue;
+            border: 0;
+            height: 10px;
+            color: brown;
+            /*IE10*/
+        }
+
+        progress::-webkit-progress-bar {
+            /* style rules */
+            background-color: darkblue;
+        }
+
+        progress::-webkit-progress-value {
+            /* style rules */
+            background-color: brown;
+        }
+
+        progress::-moz-progress-bar {
+            /* style rules */
+            background-color: brown;
+        }
+    </style>
+
+    <title>3. Add progress bar, video reload button, mute/unmute toggle button to above player</title>
+</head>
+
+<body>
+    <div id="video-container" style="background-color: yellow; width: 700px;height: 435px;">
+        <video id="video" class="center-block" style="padding-top: 5px;" width="640" height="365">
+            <source src="video\Introduction to Bootstrap 4.mp4" type="video/mp4">
+            <p>
+                Your browser doesn't support HTML5 video.
+                <a href="video\Introduction to Bootstrap 4.mp4">Download</a> the video instead.
+            </p>
+        </video>
+        <!-- Video Controls -->
+        <div id="video-controls" style="padding-left: 30px;padding-top: 5px;">
+            <button type="button" id="play" class="btn btn-default btn-circle"
+                style="border-radius: 50%;width: 40px;height: 40px;">
+                <i class="glyphicon glyphicon-play"></i>
+            </button>
+            <button type="button" id="pause" class="btn btn-default btn-circle"
+                style="border-radius: 50%;width: 40px;height: 40px;" disabled>
+                <i class="glyphicon glyphicon-pause"></i>
+            </button>
+            <button type="button" id="plus" class="btn btn-default btn-circle"
+                style="border-radius: 50%;width: 40px;height: 40px;">
+                <i class="glyphicon glyphicon-plus"></i>
+            </button>
+            <button type="button" id="minus" class="btn btn-default btn-circle"
+                style="border-radius: 50%;width: 40px;height: 40px;">
+                <i class="glyphicon glyphicon-minus"></i>
+            </button>
+            <button type="button" id="repeat" class="btn btn-default btn-circle"
+                style="border-radius: 50%;width: 40px;height: 40px;">
+                <i class="glyphicon glyphicon-repeat"></i>
+            </button>
+            <button type="button" id="mute" class="btn btn-default btn-circle"
+                style="border-radius: 50%;width: 40px;height: 40px;">
+                <i class="glyphicon glyphicon-headphones"></i>
+            </button>
+            <button type="button" id="like" class="btn btn-default btn-circle"
+                style="border-radius: 50%;width: 40px;height: 40px;-webkit-text-fill-color:lime">
+                <i class="glyphicon glyphicon-thumbs-up"></i>
+            </button>
+            <label id="likeLabel" style="-webkit-text-fill-color: lime"></label>
+            <button type="button" id="dislike" class="btn btn-default btn-circle"
+                style="border-radius: 50%;width: 40px;height: 40px;-webkit-text-fill-color: red;margin-left: 20px;">
+                <i class="glyphicon glyphicon-thumbs-down"></i>
+            </button>
+            <label id="dislikeLabel" style="-webkit-text-fill-color: red"></label>
+        </div>
+        <div style="padding-top: 5px">
+            <progress value="0" max="100" style="width: 640px;" class="center-block" id="process-bar"></progress>
+        </div>
+    </div>
+
+</body>
+
+</html>
