@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Video } from '../../model/video';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-controls',
@@ -14,7 +15,7 @@ export class ControlsComponent implements OnInit {
   playFlag = false;
   playPercent = 0;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
   }
@@ -67,11 +68,32 @@ export class ControlsComponent implements OnInit {
 
   like() {
     this.currentVideo.likeNum++;
-    // localStorage.setItem('like', this.currentVideo.likeNum.toString());
+    this.saveVideo();
   }
 
   dislike() {
     this.currentVideo.dislikeNum++;
-    // localStorage.setItem('dislike', this.currentVideo.dislikeNum.toString());
+    this.saveVideo();
+  }
+
+  saveVideo() {
+    const headers = new HttpHeaders().set(
+      'Content-type',
+      'application/json; charset=UTF-8'
+    );
+    this.http.put('http://localhost:3000/youtube/' + this.currentVideo.id,
+      this.currentVideo,
+      { headers })
+      .subscribe(
+        val => {
+          console.log('Put call successful value returned in body', val);
+        },
+        error => {
+          console.log('Put call in error', error);
+        },
+        () => {
+          console.log('The Put observable is now completed.');
+        }
+      );
   }
 }

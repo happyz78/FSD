@@ -45,9 +45,7 @@ export class AddListComponent implements OnInit {
     player.play();
 
     modalRef.result.then((result) => {
-      console.log('1111111111111');
     }, (reason) => {
-      console.log('2222222222222');
     });
   }
 
@@ -73,6 +71,10 @@ export class AddListComponent implements OnInit {
     );
 
     if (this.editVideo) {
+      if (this.url !== this.editVideo.url) {
+        this.editVideo.approved = 0;
+      }
+
       this.editVideo.name = this.title;
       this.editVideo.url = this.url;
       this.editVideo.status = 'edited';

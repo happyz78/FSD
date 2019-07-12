@@ -79,6 +79,5 @@ export class AppComponent implements AfterViewInit {
   }
 
   videoListChange(event: Video[]) {
-    alert(111);
   }
 }
