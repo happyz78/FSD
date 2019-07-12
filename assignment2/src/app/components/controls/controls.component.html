@@ -29,12 +29,12 @@
         style="border-radius: 50%;width: 40px;height: 40px;-webkit-text-fill-color:lime" (click)="like()">
         <fa-icon icon="thumbs-up"></fa-icon>
     </button>
-    <label id="likeLabel" style="-webkit-text-fill-color: lime;margin-left: 10px;">{{ currentVideo.likeNum }}</label>
+    <label id="likeLabel" style="-webkit-text-fill-color: lime;margin-left: 10px;">{{ currentVideo ? currentVideo.likeNum : '0' }}</label>
     <button type="button" id="dislike" class="btn btn-default btn-circle"
         style="border-radius: 50%;width: 40px;height: 40px;-webkit-text-fill-color: red;margin-left: 20px;" (click)="dislike()">
         <fa-icon icon="thumbs-down"></fa-icon>
     </button>
-    <label id="dislikeLabel" style="-webkit-text-fill-color: red;margin-left: 10px;">{{ currentVideo.dislikeNum }}</label>
+    <label id="dislikeLabel" style="-webkit-text-fill-color: red;margin-left: 10px;">{{ currentVideo ? currentVideo.dislikeNum : '0' }}</label>
 </div>
 <div style="padding-top: 5px; width: 600px;">
         <ngb-progressbar type="success" [value]="playPercent"></ngb-progressbar>

@@ -1,3 +1,3 @@
 <video #video id="video" class="center-block" style="padding-top: 5px;" width="600" height="340">
-    <source [src]="currentVideo.url" type="video/mp4">
+    <source [src]="currentVideo ? currentVideo.url : ''" type="video/mp4">
 </video>

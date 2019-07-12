@@ -1,0 +1,13 @@
+::ng-deep .my-class .modal-dialog { 
+    max-width: 640px;
+    width: 640px;
+}
+
+.my-a {
+    color: #007bff !important; 
+    text-decoration: none !important;
+    background-color: transparent !important;
+}
+a.my-a:hover {
+    cursor: pointer !important;
+}

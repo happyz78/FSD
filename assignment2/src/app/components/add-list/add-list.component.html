@@ -1,0 +1,88 @@
+<div class="container-fluid" style="margin-top: 20px">
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+      <ngb-alert *ngIf="alertMessage" [type]="alertType" (close)="alertMessage = null">{{ alertMessage }}</ngb-alert>
+    </div>
+    <div class="col-lg-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-1">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Title:</label>
+    </div>
+    <div class="col-lg-5">
+      <input id="typeahead-basic" type="text" class="form-control" [value]="title" #titleInput />
+    </div>
+    <div class="col-lg-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-1">
+      <label for="staticEmail" class="col-sm-2 col-form-label">URL:</label>
+    </div>
+    <div class="col-lg-5">
+      <input id="typeahead-basic" type="text" class="form-control" [value]="url" #urlInput />
+    </div>
+    <div class="col-lg-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+      <button type="button" class="btn btn-primary" (click)="add()">Add</button>
+    </div>
+    <div class="col-lg-3"></div>
+  </div>
+</div>
+
+
+<table class="table table-striped" style="margin-top: 20px">
+  <thead>
+    <tr>
+      <th scope="col">S.no</th>
+      <th scope="col">Title</th>
+      <th scope="col">URL</th>
+      <th scope="col">Operation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let video of videos">
+      <th scope="row">{{ video.id }}</th>
+      <td>
+        {{ video.name }}
+      </td>
+      <td><a herf='javascript:void(0)' class="my-a" (click)="open(content, video)">{{ video.url }}</a>
+      </td>
+      <td>
+        <button type="button" class="btn btn-primary" style="margin-right: 10px" (click)="edit(video)">
+          Edit
+        </button>
+        <button type="button" class="btn btn-primary" style="margin-right: 10px" (click)="delete(video)">
+          Delete
+        </button>
+        <button type="button" class="btn btn-success" style="margin-right: 10px" (click)="approve(video)"
+          [disabled]="video.approved === 1">
+          Approve
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Demo Player</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <video id="demoPlayer" class="center-block" style="padding-top: 5px;" width="600" height="340">
+      <source [src]="demoVideo ? demoVideo.url : ''" type="video/mp4">
+    </video>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+  </div>
+</ng-template>

@@ -1,7 +1,10 @@
 import { Component, AfterViewInit, ViewChild, Injectable } from '@angular/core';
 import { Video } from './model/video';
 import { ControlsComponent } from './components/controls/controls.component';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { PlayListComponent } from './components/play-list/play-list.component';
+import { PlayerComponent } from './components/player/player.component';
+import { AddListComponent } from './components/add-list/add-list.component';
 
 @Component({
   selector: 'app-root',
@@ -16,11 +19,37 @@ export class AppComponent implements AfterViewInit {
   videos: Video[];
   @ViewChild(ControlsComponent, { static: true })
   controls: ControlsComponent;
+  @ViewChild(PlayListComponent, { static: true })
+  playList: PlayListComponent;
+  @ViewChild(PlayerComponent, { static: true })
+  player: PlayerComponent;
+  @ViewChild(AddListComponent, { static: true })
+  addList: AddListComponent;
 
   constructor(private http: HttpClient) {
-    this.video = new Video('', '', 0, 0);
+
+    this.initData().then(data => {
+      this.videos = data as Video[];
+      this.video = this.videos[0];
+      this.playList.videos = this.videos;
+      this.player.currentVideo = this.video;
+      this.addList.videos = this.videos;
+
+      this.videoChange(this.video, false);
+    });
+    console.log('finish Constructor');
   }
 
+  async initData() {
+    const data: any = await this.getData();
+    console.log(data);
+    return data;
+  }
+
+  getData() {
+    const data: any = this.http.get('http://localhost:3000/youtube').toPromise();
+    return data;
+  }
 
   ngAfterViewInit() {
     const player: any = document.getElementById('video');
@@ -35,9 +64,9 @@ export class AppComponent implements AfterViewInit {
     });
   }
 
-  videoChange(event: Video) {
+  videoChange(event: Video, flag: boolean = true) {
     const player: any = document.getElementById('video');
-    if (this.video.url === '') {
+    if (!flag) {
       this.video = event;
       player.load();
       return;
@@ -49,4 +78,7 @@ export class AppComponent implements AfterViewInit {
     this.controls.playFlag = true;
   }
 
+  videoListChange(event: Video[]) {
+    alert(111);
+  }
 }
