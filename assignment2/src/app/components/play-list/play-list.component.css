@@ -1,0 +1,7 @@
+
+.middle {
+    height: 410px;
+    float: none;
+    display: table-cell;
+    vertical-align: middle;
+}

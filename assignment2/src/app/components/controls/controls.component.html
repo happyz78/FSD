@@ -1,0 +1,41 @@
+
+<!-- Video Controls -->
+<div id="video-controls" class="center-block" style="padding-left: 30px;padding-top: 5px;width: 600px;">
+    <button type="button" [disabled]="playFlag" id="play" class="btn btn-default btn-circle"
+        style="border-radius: 50%;width: 40px;height: 40px;" (click)="play()">
+        <fa-icon icon="play"></fa-icon>
+    </button>
+    <button type="button" [disabled]="!playFlag" id="pause" class="btn btn-default btn-circle"
+        style="border-radius: 50%;width: 40px;height: 40px;"  (click)="pause()">
+        <fa-icon icon="pause"></fa-icon>
+    </button>
+    <button type="button" id="plus" class="btn btn-default btn-circle"
+        style="border-radius: 50%;width: 40px;height: 40px;" (click)="volumeUp()">
+        <fa-icon icon="volume-up"></fa-icon>
+    </button>
+    <button type="button" id="minus" class="btn btn-default btn-circle"
+        style="border-radius: 50%;width: 40px;height: 40px;" (click)="volumeDown()">
+        <fa-icon icon="volume-down"></fa-icon>
+    </button>
+    <button type="button" id="repeat" class="btn btn-default btn-circle"
+        style="border-radius: 50%;width: 40px;height: 40px;" (click)="repeat()">
+        <fa-icon icon="stop"></fa-icon>
+    </button>
+    <button type="button" id="mute" class="btn btn-default btn-circle"
+        style="border-radius: 50%;width: 40px;height: 40px;" (click)="mute()">
+        <fa-icon icon="headphones"></fa-icon>
+    </button>
+    <button type="button" id="like" class="btn btn-default btn-circle"
+        style="border-radius: 50%;width: 40px;height: 40px;-webkit-text-fill-color:lime" (click)="like()">
+        <fa-icon icon="thumbs-up"></fa-icon>
+    </button>
+    <label id="likeLabel" style="-webkit-text-fill-color: lime;margin-left: 10px;">{{ currentVideo.likeNum }}</label>
+    <button type="button" id="dislike" class="btn btn-default btn-circle"
+        style="border-radius: 50%;width: 40px;height: 40px;-webkit-text-fill-color: red;margin-left: 20px;" (click)="dislike()">
+        <fa-icon icon="thumbs-down"></fa-icon>
+    </button>
+    <label id="dislikeLabel" style="-webkit-text-fill-color: red;margin-left: 10px;">{{ currentVideo.dislikeNum }}</label>
+</div>
+<div style="padding-top: 5px; width: 600px;">
+        <ngb-progressbar type="success" [value]="playPercent"></ngb-progressbar>
+</div>

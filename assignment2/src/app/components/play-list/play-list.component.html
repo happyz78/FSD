@@ -1,0 +1,9 @@
+
+<div class="middle">
+    <font size="6">
+    <a *ngFor="let video of videos" href="#" (click)="play(video)">
+        <fa-icon icon="play-circle"></fa-icon>
+        {{ video.name }} <br/>
+    </a>
+    </font>
+</div>

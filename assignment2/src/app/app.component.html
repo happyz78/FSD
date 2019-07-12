@@ -1,0 +1,13 @@
+
+    <div class="container-fluid" style="background-color: yellow">
+      <div class="row">
+          <div class="col-lg-6" id="video-container">
+            <app-player [currentVideo]="video"></app-player>
+            <app-controls [currentVideo]="video"></app-controls>
+          </div>
+
+          <div class="col-lg-6 col-centered">
+            <app-play-list (change)="videoChange($event)"></app-play-list>
+          </div>
+        </div>
+    </div>

@@ -1,0 +1,23 @@
+progress {
+    /* style rules */
+    background-color: skyblue;
+    border: 0;
+    height: 10px;
+    color: brown;
+    /*IE10*/
+}
+
+progress::-webkit-progress-bar {
+    /* style rules */
+    background-color: skyblue;
+}
+
+progress::-webkit-progress-value {
+    /* style rules */
+    background-color: brown;
+}
+
+progress::-moz-progress-bar {
+    /* style rules */
+    background-color: brown;
+}
