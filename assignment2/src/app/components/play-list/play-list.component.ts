@@ -11,7 +11,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class PlayListComponent implements OnInit {
   @Output()
-  change: EventEmitter<Video> = new EventEmitter<Video>();
+  changeVideo: EventEmitter<Video> = new EventEmitter<Video>();
 
   videos: Video[];
 
@@ -35,7 +35,7 @@ export class PlayListComponent implements OnInit {
     .subscribe(res => {
       this.videos = res as Video[];
       console.log(res);
-      this.change.emit(this.videos[0]);
+      this.changeVideo.emit(this.videos[0]);
     });
 }
 
@@ -43,6 +43,6 @@ export class PlayListComponent implements OnInit {
   }
 
   play(video: Video) {
-    this.change.emit(video);
+    this.changeVideo.emit(video);
   }
 }

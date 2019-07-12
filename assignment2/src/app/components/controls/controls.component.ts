@@ -56,7 +56,7 @@ export class ControlsComponent implements OnInit {
   }
   mute() {
     const player: any = document.getElementById('video');
-    if (player.muted == false) {
+    if (player.muted === false) {
       // Mute the video
       player.muted = true;
     } else {
