@@ -1,18 +1,17 @@
-
-    <div class="container-fluid">
-      <div class="row" style="background-color: yellow;padding-bottom: 10px;">
-          <div class="col-lg-6" id="video-container">
-            <app-player [currentVideo]="video"></app-player>
-            <app-controls [currentVideo]="video"></app-controls>
-          </div>
-
-          <div class="col-lg-6 col-centered">
-            <app-play-list (changeVideo)="videoChange($event)"></app-play-list>
-          </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-              <app-add-list (changeVideos)="videoListChange($event)"></app-add-list>
-            </div>
-        </div>
+<div class="container-fluid">
+  <div class="row" style="background-color: yellow;padding-bottom: 10px;">
+    <div class="col-lg-6" id="video-container">
+      <app-player [currentVideo]="video"></app-player>
+      <app-controls [currentVideo]="video"></app-controls>
     </div>
+
+    <div class="col-lg-6 col-centered">
+      <app-play-list (changeVideo)="videoChange($event)"></app-play-list>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <app-add-list (changeVideos)="videoListChange($event)"></app-add-list>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+{
+  "youtube": [
+    {
+      "id": 1,
+      "name": "Sadhguru and Physics",
+      "url": "/video/Introduction to Javascript.mp4",
+      "status": "edited",
+      "approved": 1,
+      "likeNum": 24,
+      "dislikeNum": 7,
+      "currentStatus": "playing",
+      "exitplayprogress": 30
+    },
+    {
+      "id": 2,
+      "name": "Angular 6 Tutorial",
+      "url": "/video/Introduction to Styling with CSS3.mp4",
+      "status": "edited",
+      "approved": 1,
+      "likeNum": 3,
+      "dislikeNum": 2,
+      "currentStatus": "paused",
+      "exitplayprogress": 0
+    },
+    {
+      "id": 3,
+      "name": "Nikon P900 83X Zoom",
+      "url": "/video/Introduction to Bootstrap 4.mp4",
+      "status": "added",
+      "approved": 1,
+      "likeNum": 10,
+      "dislikeNum": 1,
+      "currentStatus": "paused",
+      "exitplayprogress": 80
+    },
+    {
+      "id": 4,
+      "name": "Understanding Javascript",
+      "url": "/video/Learn to create website with HTML5, CSS3 and Bootstrap4.mp4",
+      "status": "edited",
+      "approved": 0,
+      "likeNum": 25,
+      "dislikeNum": 5,
+      "currentStatus": "stopped",
+      "exitplayprogress": 80
+    }
+  ]
+}
