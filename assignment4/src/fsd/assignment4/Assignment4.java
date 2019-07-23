@@ -170,10 +170,10 @@ public class Assignment4 {
 			} else {
 				int index = deductionTimes / incrementTimes;
 				for (int m = 0; m < deductionTimes; m ++) {
-					income.deduction(deduction);
 					if ((m + 1) % index == 0) {
 						income.increment(increment);
 					}
+					income.deduction(deduction);
 				}
 			}
 			incomeList.add(income);
