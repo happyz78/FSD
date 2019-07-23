@@ -3,16 +3,31 @@
   <groupId>FSD</groupId>
   <artifactId>assignment4</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-<dependencies>
-<dependency>
-<groupId>de.vandermeer</groupId>
-<artifactId>asciitable</artifactId>
-<version>0.3.2</version>
-</dependency>
-</dependencies>
+  <packaging>jar</packaging>
+  <dependencies>
+	<dependency>
+	  <groupId>de.vandermeer</groupId>
+	  <artifactId>asciitable</artifactId>
+	  <version>0.3.2</version>
+	</dependency>
+  </dependencies>
   <build>
     <sourceDirectory>src</sourceDirectory>
-    <plugins>
+    <plugins>	
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+			        <archive>
+			            <manifest>
+			                <mainClass>fsd.assignment4.Assignment4</mainClass>
+			            </manifest>
+			        </archive>
+                </configuration>
+            </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.0</version>
