@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Admin Page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script th:src="@{/js/jquery-captcha.min.js}"></script>
+    <script th:src="@{/js/user.js}"></script>
+</head>
+
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="form-group">
+                <div class="col-sm-12">
+				    <form th:action="@{/logout}" method="get">
+				        <button class="btn btn-md btn-danger btn-block" name="registration"
+				                type="Submit">Logout
+				        </button>
+				    </form>
+                 </div>
+             </div>
+
+            <div class="form-group">
+                <div class="col-sm-12" style="margin-top: 20px;">
+					<form th:action="@{/index}" method="get">
+					    <button class="btn btn-md btn-warning btn-block" type="Submit">Go To Index</button>
+					</form>
+                 </div>
+             </div>
+
+        </div>
+    </div>
+    
+    
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form autocomplete="off" action="#" th:action="@{/update}"
+                  th:object="${user}" method="post" class="form-horizontal"
+                  role="form" id="registrationForm">
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-1">
+                		<h2>Update Form</h2>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                               class="validation-message"></label>
+                        <input type="text" th:field="*{name}" placeholder="Name"
+                               class="form-control"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
+                               class="validation-message"></label>
+                        <input type="text" th:field="*{lastName}"
+                               placeholder="Last Name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <input type="text" th:field="*{email}" placeholder="Email"
+                               class="form-control"/> <label
+                            th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                            class="validation-message"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <input type="password" th:field="*{password}"
+                               placeholder="Password" class="form-control"/> <label
+                            th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+                            class="validation-message"></label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+					<div class="col-sm-6 col-sm-offset-1" id="botdetect-captcha" data-captchastylename="registrationCaptchaStyle"></div> 
+                    <div class="col-sm-4">
+						<input id="registrationInput" type="text" class="form-control"/> 
+					</div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <button type="button" class="btn btn-primary btn-block" id="registrationButton">Update User</button>
+                    </div>
+                </div>
+
+                <h2><span class="text-success" th:utext="${successMessage}"></span></h2>
+
+<div class="alert alert-danger alert-dismissable" role="alert">
+	<span id="alertMsg"></span>
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+            </form>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
